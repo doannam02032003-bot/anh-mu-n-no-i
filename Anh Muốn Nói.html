@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Popups</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .popup {
+            position: absolute;
+            background-color: #FFC0CB;
+            border: 2px solid #FF69B4;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Anh muốn nói</h1>
+    <button onclick="startCreatingPopups()">Nhấn đây nè</button>
+
+    <script>
+        function createPopup() {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerText = 'Anh thích Em!';
+
+            // Randomly position the popup
+            const x = Math.random() * window.innerWidth * 0.8;
+            const y = Math.random() * window.innerHeight * 0.8;
+            popup.style.left = `${x}px`;
+            popup.style.top = `${y}px`;
+
+            // Add the popup to the body
+            popup.style.position = 'absolute';
+            document.body.appendChild(popup);
+        }
+
+        function startCreatingPopups() {
+            // Create popups continuously without stopping
+            setInterval(() => {
+                createPopup();
+            }, 200); // Create a popup every 200ms
+        }
+    </script>
+</body>
+</html>
